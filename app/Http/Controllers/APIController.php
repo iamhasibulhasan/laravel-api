@@ -10,6 +10,12 @@ class APIController extends Controller
      * Basic Controller
      */
     public function basic(){
-        return "API Controller";
+        $apiData = [
+            'status'        =>  'ok',
+            'msg'           =>  'Api run successful'
+        ];
+
+        // return json data format
+        return response()->json($apiData);
     }
 }
