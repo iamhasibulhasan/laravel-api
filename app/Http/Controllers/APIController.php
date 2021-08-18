@@ -21,4 +21,18 @@ class APIController extends Controller
         //Return data with api response
         return response()->json($apiData);
     }
+    /**
+     * Single customer data show
+     */
+    public function singleCustomer($id){
+        $single_customer = Customer::find($id);
+        $apiData = [
+            'status'        =>  true,
+            'msg'           =>  'Customer data',
+            'customers'     =>  $single_customer
+        ];
+
+        //Return data with api response
+        return response()->json($apiData);
+    }
 }

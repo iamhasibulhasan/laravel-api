@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('customers', [APIController::class, 'allCustomers']);
+Route::get('customer/{id}', [APIController::class, 'singleCustomer']);
