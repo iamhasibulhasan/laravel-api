@@ -43,7 +43,9 @@ class APIController extends Controller
 
         //Return data with api response
         return response()->json($apiData);
-    }/**
+    }
+
+    /**
      * Delete customer data
      */
     public function destroyCustomer($id){
@@ -61,6 +63,26 @@ class APIController extends Controller
         $apiData = [
             'status'        =>  $status,
             'msg'           =>  $msg
+        ];
+
+        //Return data with api response
+        return response()->json($apiData);
+    }
+
+    /**
+     * Add customer data
+     */
+    public function addCustomer(Request $request){
+        Customer::create([
+            'name'          =>  $request->name,
+            'email'         =>  $request->email,
+            'cell'          =>  $request->cell,
+            'address'       =>  $request->address,
+        ]);
+
+        $apiData = [
+            'status'        =>  true,
+            'msg'           =>  $request->name."'s data added successful."
         ];
 
         //Return data with api response
