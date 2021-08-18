@@ -26,9 +26,18 @@ class APIController extends Controller
      */
     public function singleCustomer($id){
         $single_customer = Customer::find($id);
+
+        if ($single_customer == null){
+            $status = false;
+            $msg = "Customer not found.";
+        }else{
+            $status = true;
+            $msg = "Customer is okay.";
+        }
+
         $apiData = [
-            'status'        =>  true,
-            'msg'           =>  'Customer data',
+            'status'        =>  $status,
+            'msg'           =>  $msg,
             'customers'     =>  $single_customer
         ];
 
