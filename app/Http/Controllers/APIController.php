@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class APIController extends Controller
 {
     /**
-     * Basic Controller
+     * All customers data show
      */
-    public function basic(){
+    public function allCustomers(){
+        $customers = Customer::latest()->get();
         $apiData = [
-            'status'        =>  'ok',
-            'msg'           =>  'Api run successful'
+            'status'        =>  true,
+            'msg'           =>  'All customers data',
+            'customers'     =>  $customers
         ];
 
-        // return json data format
+        //Return data with api response
         return response()->json($apiData);
     }
 }

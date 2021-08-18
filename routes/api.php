@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('basic-api', [APIController::class, 'basic']);
+Route::get('customers', [APIController::class, 'allCustomers']);
